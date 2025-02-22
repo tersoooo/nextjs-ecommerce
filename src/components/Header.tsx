@@ -7,12 +7,12 @@ export default function Header() {
     <nav className="h-10 flex items-center px-5 mt-4">
       {/* Logo ve Menü */}
       <div className="flex-shrink-0 flex items-center space-x-4">
-        <div className="fflex flex-none items-center justify-center border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-black h-[40px] w-[40px] rounded-xl">
+        <div className="flex flex-none items-center justify-center border border-neutral-700 bg-black h-[40px] w-[40px] rounded-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-label="Acme Store logo"
             viewBox="0 0 32 28"
-            className="fill-white h-[35px] w-[24px] ml-1.5"
+            className="fill-white h-[35px] w-[24px]"
           >
             <path d="M21.5758 9.75769L16 0L0 28H11.6255L21.5758 9.75769Z"></path>
             <path d="M26.2381 17.9167L20.7382 28H32L26.2381 17.9167Z"></path>
