@@ -7,12 +7,12 @@ export default function Header() {
     <nav className="h-10 flex items-center px-5 mt-4">
       {/* Logo ve Menü */}
       <div className="flex-shrink-0 flex items-center space-x-4">
-        <div className="flex items-center p-1 rounded bg-black">
+        <div className="fflex flex-none items-center justify-center border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-black h-[40px] w-[40px] rounded-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-label="Acme Store logo"
             viewBox="0 0 32 28"
-            className="h-6 w-6  fill-white"
+            className="fill-white h-[35px] w-[24px] ml-1.5"
           >
             <path d="M21.5758 9.75769L16 0L0 28H11.6255L21.5758 9.75769Z"></path>
             <path d="M26.2381 17.9167L20.7382 28H32L26.2381 17.9167Z"></path>
@@ -60,10 +60,10 @@ export default function Header() {
       {/* Basket Icon*/}
       <div className="flex-shrink-0 md:w-1/3 flex justify-end">
         <button aria-label="Open cart">
-          <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors hover:border-blue-500 dark:border-neutral-700 dark:text-white">
+          <div className="relative flex group h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-black transition-colors hover:border-blue-500">
             <BsBasket
               size={16}
-              className="transition-all ease-in-out hover:scale-110"
+              className="cursor-pointer text-white group-hover:scale-120 transition-all"
             />
           </div>
         </button>
