@@ -1,10 +1,20 @@
+"use client";
+import { useState } from "react";
 import { BsBasket } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
-
+import CartModal from "./CartModal";
 
 export default function Header() {
+
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    const toggleCart = () => {
+        setIsCartOpen(!isCartOpen);
+    }
+
   return (
-    <nav className="h-10 flex items-center px-5 mt-4">
+      <>
+      <nav className="h-10 flex items-center px-5 mt-4">
       {/* Logo ve Menü */}
       <div className="flex-shrink-0 flex items-center space-x-4">
         <div className="flex flex-none items-center justify-center border border-neutral-700 bg-black h-[40px] w-[40px] rounded-xl">
@@ -59,7 +69,7 @@ export default function Header() {
 
       {/* Basket Icon*/}
       <div className="flex-shrink-0 md:w-1/3 flex justify-end">
-        <button aria-label="Open cart">
+        <button aria-label="Open cart" onClick={toggleCart}>
           <div className="relative flex group h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-black transition-colors hover:border-blue-500">
             <BsBasket
               size={16}
@@ -68,6 +78,8 @@ export default function Header() {
           </div>
         </button>
       </div>
-    </nav>
+          </nav>
+          <CartModal isOpen={isCartOpen} onClose={toggleCart} />
+      </>
   );
 }
