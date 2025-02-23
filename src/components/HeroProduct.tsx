@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Product from "./Product";
 
 export default function ProductGrid() {
   return (
     <a href="#" className="block px-5 w-full mt-5">
       <div className="flex gap-x-5 w-full">
-        <div className="flex-1 bg-black border border-[#282828] hover:border-blue-600 transition-colors rounded-xl flex items-center justify-center">
+        <div className="flex-1 bg-black relative group border border-[#282828] hover:border-blue-600 transition-colors rounded-xl flex items-center justify-center">
           <Image
             src="/images/t-shirt-1.avif"
             alt="product"
@@ -12,16 +13,30 @@ export default function ProductGrid() {
             height={600}
             objectFit="contain"
             quality={100}
-            className="max-h-[522px] object-cover hover:scale-110 transition-all"
+            className="max-h-[522px] object-cover group-hover:scale-105 duration-500 transition-all"
           />
+          <div className="absolute top-60 left-17 flex gap-x-2 text-sm border border-[#282828] py-1 px-2 rounded-2xl">
+            <span className="font-bold text-xs flex items-center">
+              Acme Circles T-Shirt
+            </span>
+            <p className="bg-blue-600 font-bold px-1.5 py-1.5 rounded-2xl">
+              $20.00 USD
+            </p>
+          </div>
         </div>
         <div className="flex flex-col w-120 gap-y-5">
-          <div className="h-72 border bg-black rounded-xl border-[#282828] hover:border-blue-600 transition-colors">
-            1.div
-          </div>
-          <div className="h-72 border bg-black rounded-xl border-[#282828] hover:border-blue-600 transition-colors">
-            2.div
-          </div>
+          <Product
+            imageUri="/images/bag-1-dark.avif"
+            title="Acme Drawstring Bag"
+            price="$12.00"
+            alt="Drawsting Bag Product"
+          />
+          <Product
+            imageUri="/images/cup-black.avif"
+            title="Acme Cup"
+            price="$12.00"
+            alt="Product Cup"
+          />
         </div>
       </div>
     </a>

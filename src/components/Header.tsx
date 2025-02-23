@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BsBasket } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
 import CartModal from "./CartModal";
+import Link from "next/link"
 
 export default function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -27,9 +28,9 @@ export default function Header() {
               <path d="M26.2381 17.9167L20.7382 28H32L26.2381 17.9167Z"></path>
             </svg>
           </div>
-          <span className="uppercase text-base font-bold flex-none">
+          <Link href="/" className="uppercase text-base font-bold flex-none">
             acme store
-          </span>
+          </Link>
           <ul className="hidden gap-6 text-sm md:flex md:items-center font-medium">
             <li>
               <a
