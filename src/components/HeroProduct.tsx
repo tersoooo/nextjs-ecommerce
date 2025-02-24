@@ -7,7 +7,7 @@ export default function ProductGrid() {
       <div className="flex gap-x-5 w-full">
         <div className="flex-1 bg-black relative group border border-[#282828] hover:border-blue-600 transition-colors rounded-xl flex items-center justify-center">
           <Image
-            src="/images/t-shirt-1.avif"
+            src="/images/men-ceket.webp"
             alt="product"
             width={600}
             height={600}
