@@ -16,3 +16,19 @@ export const getLatestProducts = async () => {
     return [];
   }
 };
+
+export const getAllProducts = async () => {
+  try {
+    const productsRef = collection(db, "Products");
+    const q = query(productsRef, orderBy("createdAt", "desc"));
+    const querySnapshot = await getDocs(q);
+    const products = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return products;
+  } catch (err) {
+    console.error("Ürünler çekilirken hata oluştu:", err);
+    return [];
+  }
+};
