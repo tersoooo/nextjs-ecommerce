@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Product from "./Product";
 import { getLatestProducts } from "@/lib/products";
+import Link from "next/link";
 
 export default async function HeroProduct() {
   const products = await getLatestProducts();
@@ -17,6 +18,7 @@ export default async function HeroProduct() {
     <a href="#" className="block px-5 w-full mt-5">
       <div className="flex gap-x-5 w-full">
         <div className="flex-1 bg-black relative group border border-[#282828] hover:border-blue-600 transition-colors rounded-xl flex items-center justify-center">
+          <Link href={`/products/${heroProduct.id}`}>
           <Image
             src={heroProduct.imageUri}
             alt={heroProduct.title}
@@ -27,6 +29,7 @@ export default async function HeroProduct() {
             quality={100}
             className="max-h-[522px] object-cover group-hover:scale-105 duration-500 transition-all"
           />
+          </Link>
           <div className="absolute top-60 left-17 flex gap-x-2 text-sm border border-[#282828] py-1 px-2 rounded-2xl">
             <span className="font-bold text-xs flex items-center">
               {heroProduct.title}
@@ -37,6 +40,7 @@ export default async function HeroProduct() {
           </div>
         </div>
         <div className="flex flex-col w-120 gap-y-5">
+          <Link href={`/products/${product1.id}`}>
           <Product
             imageUri={product1?.imageUri}
             width={270}
@@ -45,6 +49,8 @@ export default async function HeroProduct() {
             price={`$${product1.price}`}
             alt="Drawsting Bag Product"
           />
+          </Link>
+          <Link href={`/products/${product2.id}`}>
           <Product
             imageUri={product2?.imageUri}
             title={product2.title}
@@ -53,6 +59,7 @@ export default async function HeroProduct() {
             width={250}
             height={250}
           />
+          </Link>
         </div>
       </div>
     </a>
