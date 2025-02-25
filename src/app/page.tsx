@@ -8,9 +8,9 @@ export default function Home() {
     <>
       <Header />
       <HeroProduct />
-      <div className="w-full px-5 py-5">
-        <Slider />
-      </div>
+        <div className="w-full px-5 py-5">
+          <Slider />
+        </div>
       <Footer />
     </>
   );

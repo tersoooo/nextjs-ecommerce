@@ -10,6 +10,7 @@ export default function Product({imageUri, title, price, alt = "product", width 
         height={height}
         objectFit="contain"
         quality={100}
+        unoptimized
         className="flex group-hover:scale-105 transition-all duration-500 object-cover justify-center"
       />
       <div className="absolute bottom-10 left-5 flex gap-x-1 text-xs border border-[#282828] py-1 items-center rounded-full px-1">
