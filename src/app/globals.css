@@ -7,6 +7,9 @@
   * {
     @apply selection:bg-[#ec4899] selection:text-white
   }
+  button {
+    @apply cursor-pointer
+  }
   .embla {
     overflow-x: auto;
     overflow-y: hidden;
