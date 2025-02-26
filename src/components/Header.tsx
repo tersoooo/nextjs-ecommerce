@@ -37,28 +37,28 @@ export default function Header() {
           </Link>
           <ul className="hidden gap-6 text-sm md:flex md:items-center font-medium">
             <li>
-              <a
+              <Link
                 href="#"
                 className="text-neutral-500 underline-offset-4 hover:text-neutral-100 transition-colors hover:underline"
               >
                 All
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#"
                 className="text-neutral-500 underline-offset-4 hover:text-neutral-100 transition-colors hover:underline"
               >
                 Shirts
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#"
                 className="text-neutral-500 underline-offset-4 hover:text-neutral-100 transition-colors hover:underline"
               >
                 Stickers
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

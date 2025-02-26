@@ -9,13 +9,13 @@ export default async function HeroProduct() {
   console.log("Firebaseden gelen veriler:", products)
 
   if (!products || products.length < 0) {
-    return <div>Ürünler yüklenemedi veya yeterli ürün yok.</div>;
+    return <p>Ürünler yüklenemedi veya yeterli ürün yok.</p>;
   }
 
   const [heroProduct, product1, product2] = products;
 
   return (
-    <a href="#" className="block px-5 w-full mt-5">
+    <div className="block px-5 w-full mt-5">
       <div className="flex gap-x-5 w-full">
         <div className="flex-1 bg-black relative group border border-[#282828] hover:border-blue-600 transition-colors rounded-xl flex items-center justify-center">
           <Link href={`/products/${heroProduct.id}`}>
@@ -62,6 +62,6 @@ export default async function HeroProduct() {
           </Link>
         </div>
       </div>
-    </a>
+    </div>
   );
 }

@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className="mx-auto container flex items-center gap-x-10 py-5">
+    <div className="mx-auto container flex items-center gap-x-10 py-5 border-t border-t-neutral-700">
       <div className="flex gap-x-2 items-center">
         <div className="flex flex-none items-center justify-center border border-neutral-700 bg-black h-[30px] w-[30px] rounded-xl">
           <svg
