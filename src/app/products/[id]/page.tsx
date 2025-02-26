@@ -1,21 +1,54 @@
-// app/products/[id]/page.js
+"use client";
 import { db } from "@/firebase/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import Image from "next/image";
 import { CiCirclePlus } from "react-icons/ci";
+import { addToCart } from "@/lib/cartSlice";
+import Link from "next/link";
+import {useDispatch} from "react-redux";
+import { useParams } from "next/navigation";
+import React, {useState, useEffect} from "react";
 
-export default async function ProductDetail({ params }) {
-  const { id } = params;
+export default  function ProductDetail() {
+  const id = useParams().id
+  const [product, setProduct] = useState(null);
+  const dispatch = useDispatch();
 
-  // Firestore'dan ürünü çek
-  const productRef = doc(db, "Products", id);
-  const productSnap = await getDoc(productRef);
+    useEffect(() => {
+        const fetchProduct = async () => {
+            if (!id) return;
+            const productRef = doc(db, "Products", id);
+            const productSnap = await getDoc(productRef);
 
-  if (!productSnap.exists()) {
-    return <div>Ürün bulunamadı.</div>;
+            if (!productSnap.exists()) {
+                return;
+            }
+
+            const data = { id: productSnap.id, ...productSnap.data() };
+            setProduct(data);
+        };
+
+        fetchProduct();
+    }, [id]);
+
+  const handleAddToCart = () => {
+      dispatch(
+          addToCart({
+              id: product.id,
+              title: product.title,
+              price: product.price,
+              imageUri: product.imageUri,
+          })
+      )
   }
 
-  const product = { id: productSnap.id, ...productSnap.data() };
+    if (!product) {
+        return (
+            <div className="flex justify-center items-center h-[245px]">
+                <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        )
+    }
 
   return (
       <div className="mx-auto max-w-screen-2xl px-4">
@@ -60,7 +93,7 @@ export default async function ProductDetail({ params }) {
                       </p>
                   </div>
                   <div className="relative group">
-                      <button className="bg-blue-600 group-hover:bg-blue-600/90 transition-colors w-full rounded-full h-15 text-lg font-semibold">Add To Cart</button>
+                      <button onClick={handleAddToCart} className="bg-blue-600 group-hover:bg-blue-600/90 transition-colors w-full rounded-full h-15 text-lg font-semibold">Add To Cart</button>
                       <CiCirclePlus size={30} className="absolute top-4 left-4 group-hover:text-gray-300" />
                   </div>
               </div>

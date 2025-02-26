@@ -1,5 +1,7 @@
+"use client";
 import "./globals.css";
-
+import {Provider} from "react-redux"
+import {store} from "@/lib/store"
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -8,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen">
-        {children}
+        <Provider store={store}>{children}</Provider>
       </body>
     </html>
   );

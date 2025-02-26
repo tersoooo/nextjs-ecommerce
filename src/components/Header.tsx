@@ -4,10 +4,15 @@ import { BsBasket } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
 import CartModal from "./CartModal";
 import Link from "next/link";
+import {useSelector} from "react-redux";
 
 export default function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
+
+  //Basket
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     setIsClient(true);
@@ -82,11 +87,17 @@ export default function Header() {
                 size={16}
                 className="cursor-pointer text-white group-hover:scale-120 transition-all"
               />
+              {cartCount > 0 && (
+                  <span
+                      className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </div>
           </button>
         </div>
       </nav>
-      {isClient && <CartModal isOpen={isCartOpen} onClose={toggleCart} />}
+      {isClient && <CartModal isOpen={isCartOpen} onClose={toggleCart}/>}
     </>
   );
 }
