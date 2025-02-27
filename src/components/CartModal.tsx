@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {useDispatch, useSelector} from "react-redux";
-import {removeFromCart, updateQuantity} from "@/lib/cartSlice";
+import {removeFromCart, updateQuantity, clearCart} from "@/lib/cartSlice";
 
 interface CartModalProps {
   isOpen: boolean;
